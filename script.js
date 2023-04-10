@@ -1,53 +1,38 @@
-import {
-	getCountry
-}from './api.js'
+import { getCountry, getStats } from "./api.js";
 
-const dropDown = document.getElementById('list-country');
+//GET Country
+
+const dropDown = document.getElementById("list-country");
 const data = await getCountry();
-console.log(data);
+console.log(data.response);
 
-dropDown.innerHTML=``;
+dropDown.innerHTML = ``;
 for (let i = 0; i < data.response.length; i++) {
-	let row = data.response[i]
-	dropDown.innerHTML += `<option>${row}</option>`
-	
+  let row = data.response[i];
+  dropDown.innerHTML += `<option>${row}</option>`;
 }
 
+//GET Stats
 
-// async function handleButton() {
-// 	fetch('https://covid-193.p.rapidapi.com/countries', options)
-// 	.then(response => response.json())
-// 	.then(response => {
+const stats = await getStats();
+console.log(stats.response);
 
-// 		let row = '';
-// 	response.forEach(element => {
-// 		row += `
-// 		<li>${element.countries}</li>`
-// 		document.getElementById('list-country').innerHTML = row;
-// 	})
-// })
-// 	.catch(err => console.error(err));
-// }
+document.getElementById("list-country").onchange = function () {
+  const selectedCountry = document.getElementById("list-country").value;
+  const countryData = stats.response.filter(stats => stats.country == selectedCountry)[0];
+  console.log(selectedCountry);
 
+  const activeCases = document.getElementById("active-case");
+  const newCases = document.getElementById("new-case");
+  const recCases = document.getElementById("rec-case");
+  const casesTotal = document.getElementById("cases-total");
+  const deathTotal = document.getElementById("death-total");
+  const testTotal = document.getElementById("test-total");
 
-// const options = {
-// 	method: 'GET',
-// 	headers: {
-// 		'X-RapidAPI-Key': 'c78e996eabmsha64e4e182be244ap170fb5jsn479638a388d8',
-// 		'X-RapidAPI-Host': 'covid-193.p.rapidapi.com'
-// 	}
-// };
-
-// fetch('https://covid-193.p.rapidapi.com/history?country=usa&day=2020-06-02', options)
-// 	.then(response => response.json())
-// 	.then(response => console.log(response))
-// 	.catch(err => console.error(err));
-
-// {
-	// let row = ''
-
-	// response.forEach(element => {
-	// 	row += `
-	// 	<li>${element.countries}</li>`
-	// 	document.getElementById('list-country').innerHTML = row;
-// 	}
+  activeCases.innerHTML = countryData.cases.active;
+  newCases.innerHTML = countryData.cases.new;
+  recCases.innerHTML = countryData.cases.recovered;
+  casesTotal.innerHTML = countryData.cases.total;
+  deathTotal.innerHTML = countryData.deaths.total;
+  testTotal.innerHTML = countryData.tests.total;
+};

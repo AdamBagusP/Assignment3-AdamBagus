@@ -10,7 +10,7 @@ export const getCountry = async () => {
 };
 
 export const getStats = async () => {
-	const response = await fetch('https://covid-193.p.rapidapi.com/statistics?country=indonesia', {
+	const response = await fetch(`https://covid-193.p.rapidapi.com/statistics`, {
 		method: 'GET',
 		headers: {
 		'X-RapidAPI-Key': 'c78e996eabmsha64e4e182be244ap170fb5jsn479638a388d8',
