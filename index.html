@@ -14,6 +14,8 @@
   </head>
 
   <body>
+    <!-- Jumbotron -->
+
     <div class="p-5 text-white" style="background-color: #206a5d">
       <h1>Covid 19 Case Information</h1>
       <p>
@@ -24,12 +26,82 @@
       </p>
     </div>
 
-    <div class="container mt-4">
-      <h1 style="text-align: center">Select Region</h1>
-      <div>
-        <select name="" id="list-country"></select>
+    <!-- Input Region -->
+
+    <div class="container mt-5">
+      <h1 class="text-center">Select Region</h1>
+      <br />
+      <div class="content-center">
+        <select class="form-select" id="list-country"></select>
       </div>
     </div>
+
+    <!-- Content -->
+
+    <div class="container mt-5">
+      <div class="row content-center">
+        <div class="col-sm-3">
+          <div class="card card-body text-center">
+            <div class="img-card content-center"><img src="assets/active.png" alt="" /></div>
+            <h2>Active Cases</h2>
+            <h4 id="active-case"></h4>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card card-body text-center">
+            <div class="img-card content-center"><img src="assets/new.png" alt="" /></div>
+            <h2>New Cases</h2>
+            <h4 id="new-case"></h4>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card card-body text-center">
+            <div class="img-card content-center"><img src="assets/recovered.png" alt="" /></div>
+            <h2>Recovered Cases</h2>
+            <h4 id="rec-case"></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mt-3" style="margin-bottom: 100px">
+      <div class="row content-center">
+        <div class="col-sm-3">
+          <div class="card card-body text-center">
+            <div class="img-card content-center"><img src="assets/total.png" alt="" /></div>
+            <h2>Total Cases</h2>
+            <h4 id="cases-total"></h4>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card card-body text-center">
+            <div class="img-card content-center"><img src="assets/death.png" alt="" /></div>
+            <h2>Total Death</h2>
+            <h4 id="death-total"></h4>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <div class="card card-body text-center">
+            <div class="img-card content-center"><img src="assets/test.png" alt="" /></div>
+            <h2>Total Test</h2>
+            <h4 id="test-total"></h4>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- footer -->
+
+    <footer
+      class="bg-light text-center text-lg-start fixed-bottom"
+      style="margin-top: 50px"
+    >
+      <div class="text-center p-3 main-color text-white">
+        © 2023 Instagram:
+        <a class="text-light" href="https://www.instagram.com/admbgsss/"
+          >Adam Bagus</a
+        >
+      </div>
+    </footer>
   </body>
   <script src="script.js" type="module"></script>
 </html>
